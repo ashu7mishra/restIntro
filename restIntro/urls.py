@@ -17,8 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 # from .views import users, get_or_update_or_delete_user
-from .better_views import UserListCreateAPIView
-from .better_views import UserRetrieveUpdateDestroyAPIView
+# from .better_views import UserListCreateAPIView, UserRetrieveUpdateDestroyAPIView
+from .custom_API_views import UserListCreateAPIViews
 
 
 # urlpatterns = [
@@ -27,8 +27,14 @@ from .better_views import UserRetrieveUpdateDestroyAPIView
 #     path('admin/', admin.site.urls),
 # ]
 
+# urlpatterns = [
+#     path('users/', UserListCreateAPIView.as_view()),
+#     path('users/<id>', UserRetrieveUpdateDestroyAPIView.as_view()),
+#     path('admin/', admin.site.urls),
+# ]
+
 urlpatterns = [
-    path('users/', UserListCreateAPIView.as_view()),
-    path('users/<id>', UserRetrieveUpdateDestroyAPIView.as_view()),
+    path('users/', UserListCreateAPIViews.as_view()),
+    path('users/<id>', UserListCreateAPIViews.as_view()),
     path('admin/', admin.site.urls),
 ]
